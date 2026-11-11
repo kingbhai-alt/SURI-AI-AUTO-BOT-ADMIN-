@@ -1,0 +1,755 @@
+/**
+ * Generates pure standalone single-file HTML/CSS/JS ready to run locally, on Netlify, or Vercel
+ */
+
+export function generateStandaloneHtml(): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SURI AI AUTO BOT - License Generator & Admin Panel</title>
+  <meta name="description" content="Cyber Dark/Red Admin Dashboard and encrypted license key generator for SURI AI AUTO BOT. Standalone HTML single-file edition.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              black: '#07070a',
+              darker: '#0c0c12',
+              card: '#12121c',
+              border: '#27273a',
+              red: '#ef4444',
+              neon: '#ff2a4b',
+              glow: 'rgba(239, 68, 68, 0.4)'
+            }
+          },
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'monospace'],
+            cyber: ['"Chakra Petch"', '"Rajdhani"', 'sans-serif'],
+            sans: ['"Rajdhani"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@500;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #07070a;
+      color: #f1f5f9;
+      font-family: 'Rajdhani', sans-serif;
+    }
+    .cyber-grid {
+      background-image: 
+        linear-gradient(to right, rgba(239, 68, 68, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(239, 68, 68, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .glow-red {
+      box-shadow: 0 0 25px -4px rgba(239, 68, 68, 0.35);
+    }
+    .glow-text {
+      text-shadow: 0 0 12px rgba(239, 68, 68, 0.7);
+    }
+    .glow-border {
+      box-shadow: inset 0 0 15px rgba(239, 68, 68, 0.15), 0 0 15px rgba(239, 68, 68, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen cyber-grid text-slate-100 flex flex-col selection:bg-red-600 selection:text-white">
+
+  <!-- TOP NAV / HUD -->
+  <header class="border-b border-red-950/60 bg-black/60 backdrop-blur-md sticky top-0 z-50 px-4 lg:px-8 py-3.5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-600 to-red-950 p-0.5 glow-red flex items-center justify-center">
+        <div class="w-full h-full bg-black/90 rounded-[7px] flex items-center justify-center font-bold text-red-500 font-mono text-xl">
+          ⚡
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs uppercase font-mono tracking-widest text-red-500 font-semibold px-1.5 py-0.5 rounded bg-red-950/50 border border-red-800/40">ADMIN HQ</span>
+          <h1 class="text-lg md:text-xl font-bold tracking-wider font-cyber glow-text text-white">SURI AI AUTO BOT</h1>
+        </div>
+        <p class="text-xs text-slate-400 font-mono hidden sm:block">CRYPTOGRAPHIC LICENSE GENERATION SYSTEM</p>
+      </div>
+    </div>
+
+    <!-- System Badges -->
+    <div class="flex items-center gap-3">
+      <div class="hidden md:flex items-center gap-2 bg-zinc-900/80 border border-zinc-800 px-3 py-1.5 rounded-md text-xs font-mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-zinc-400">CIPHER:</span>
+        <span class="text-emerald-400 font-semibold">ACTIVE</span>
+      </div>
+      <div class="flex items-center gap-2 bg-red-950/40 border border-red-900/60 px-3 py-1.5 rounded-md text-xs font-mono text-red-400">
+        <span class="w-2 h-2 rounded-full bg-red-500"></span>
+        <span>SYMBOL: <strong class="text-white">$</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl mx-auto w-full p-4 md:p-6 lg:p-8 space-y-6">
+
+    <!-- HERO NOTIFICATION / STATS -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+      <div class="bg-zinc-950/80 border border-red-900/30 p-3.5 rounded-xl">
+        <span class="text-xs font-mono text-zinc-400 block mb-1">PREFIX ENFORCED</span>
+        <div class="text-red-400 font-bold font-mono text-lg flex items-center gap-2">
+          <span>SURI-</span>
+          <span class="text-[10px] text-zinc-500 px-1.5 py-0.5 rounded bg-zinc-900 border border-zinc-800">MANDATORY</span>
+        </div>
+      </div>
+      <div class="bg-zinc-950/80 border border-red-900/30 p-3.5 rounded-xl">
+        <span class="text-xs font-mono text-zinc-400 block mb-1">SECRET SUFFIX</span>
+        <div class="text-red-400 font-bold font-mono text-lg flex items-center gap-2">
+          <span>...$</span>
+          <span class="text-[10px] text-red-500 px-1.5 py-0.5 rounded bg-red-950 border border-red-900">SECRET</span>
+        </div>
+      </div>
+      <div class="bg-zinc-950/80 border border-red-900/30 p-3.5 rounded-xl">
+        <span class="text-xs font-mono text-zinc-400 block mb-1">SUPPORTED TIERS</span>
+        <div class="text-white font-bold font-mono text-base flex items-center gap-2">
+          <span class="text-amber-400">7 Days</span>
+          <span class="text-zinc-600">/</span>
+          <span class="text-red-400">30 Days</span>
+        </div>
+      </div>
+      <div class="bg-zinc-950/80 border border-red-900/30 p-3.5 rounded-xl">
+        <span class="text-xs font-mono text-zinc-400 block mb-1">DEPLOYMENT READY</span>
+        <div class="text-emerald-400 font-bold font-mono text-base flex items-center gap-1.5">
+          <span>●</span>
+          <span>NETLIFY / VERCEL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUAL COLUMNS: GENERATOR & VALIDATOR -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- LEFT: GENERATOR CARD (7 cols) -->
+      <section class="lg:col-span-7 bg-zinc-950/90 border border-red-900/50 rounded-2xl p-5 md:p-7 glow-red flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-48 h-48 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div>
+          <!-- Title -->
+          <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4 mb-6">
+            <div>
+              <span class="text-[11px] font-mono text-red-500 tracking-wider font-semibold uppercase">SECURITY CORE</span>
+              <h2 class="text-xl md:text-2xl font-bold font-cyber text-white flex items-center gap-2">
+                LICENSE KEY GENERATOR
+              </h2>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-red-950/60 border border-red-700/50 text-red-300 text-xs font-mono">
+              ENC: AES/HMAC-B32
+            </span>
+          </div>
+
+          <!-- DURATION SELECTION (Requirement 2) -->
+          <div class="mb-6">
+            <label class="block text-xs font-mono text-zinc-300 uppercase tracking-wider mb-2.5">
+              1. SELECT KEY DURATION:
+            </label>
+            <div class="grid grid-cols-2 gap-3">
+              <!-- 7 Days -->
+              <button type="button" id="btn-duration-7" onclick="setDuration(7)" class="duration-btn relative text-left p-4 rounded-xl border border-red-600 bg-red-950/30 text-white transition-all duration-200">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold font-cyber text-lg tracking-wide">7 DAYS</span>
+                  <span class="text-[10px] font-mono font-bold uppercase bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded">STANDARD</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-mono">Short-term / Trial access key</p>
+                <div class="selected-indicator absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500"></div>
+              </button>
+
+              <!-- 30 Days -->
+              <button type="button" id="btn-duration-30" onclick="setDuration(30)" class="duration-btn relative text-left p-4 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:border-zinc-700 transition-all duration-200">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold font-cyber text-lg tracking-wide text-white">30 DAYS</span>
+                  <span class="text-[10px] font-mono font-bold uppercase bg-red-500/20 text-red-400 border border-red-500/30 px-2 py-0.5 rounded">PREMIUM</span>
+                </div>
+                <p class="text-xs text-zinc-400 font-mono">Monthly high-priority license</p>
+                <div class="selected-indicator hidden absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500"></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- FORMAT SELECTION (Requirement 3: Option to display "SURI-XXXX-XXXX$" formatted key) -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-2">
+              <label class="block text-xs font-mono text-zinc-300 uppercase tracking-wider">
+                2. KEY FORMAT PATTERN:
+              </label>
+              <span class="text-[11px] font-mono text-red-400 font-semibold">Ends with secret '$'</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 p-3 rounded-lg border border-red-600 bg-red-950/20 cursor-pointer format-radio-label">
+                <input type="radio" name="formatOption" value="compact" checked onchange="setFormat('compact')" class="text-red-600 accent-red-600 focus:ring-0">
+                <div>
+                  <span class="font-mono text-xs font-bold text-white block">SURI-XXXX-XXXX$</span>
+                  <span class="text-[11px] text-zinc-400 block">Compact 8-char cyber token</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-lg border border-zinc-800 bg-zinc-900/40 cursor-pointer format-radio-label">
+                <input type="radio" name="formatOption" value="extended" onchange="setFormat('extended')" class="text-red-600 accent-red-600 focus:ring-0">
+                <div>
+                  <span class="font-mono text-xs font-bold text-white block">SURI-XXXX-XXXX-XXXX$</span>
+                  <span class="text-[11px] text-zinc-400 block">Extended 12-char secure token</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- CLIENT & BATCH OPTIONS -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">CLIENT NAME / TAG (OPTIONAL):</label>
+              <input type="text" id="clientInput" placeholder="e.g. VIP-AutoTrader-01" class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-red-500 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-zinc-400 mb-1.5 uppercase">BATCH COUNT:</label>
+              <select id="batchCount" class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-red-500 transition-colors">
+                <option value="1">1 Key</option>
+                <option value="5">5 Keys</option>
+                <option value="10">10 Keys</option>
+                <option value="25">25 Keys</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- GENERATE BUTTON -->
+          <button type="button" onclick="handleGenerate()" class="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 via-red-500 to-rose-600 hover:from-red-500 hover:to-red-700 text-white font-cyber font-bold text-base md:text-lg tracking-wider uppercase shadow-lg shadow-red-900/40 hover:shadow-red-700/60 transition-all duration-200 active:scale-[0.99] flex items-center justify-center gap-2">
+            <span>⚡ GENERATE ENCRYPTED KEY</span>
+          </button>
+        </div>
+
+        <!-- GENERATED KEY DISPLAY CONTAINER -->
+        <div id="outputContainer" class="mt-7 pt-6 border-t border-zinc-800/80">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              LATEST GENERATED KEY:
+            </span>
+            <span id="outputTierBadge" class="text-xs font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              7 DAYS STANDARD
+            </span>
+          </div>
+
+          <!-- The Key Display Box -->
+          <div class="bg-black/90 border-2 border-red-600/80 rounded-xl p-4 md:p-5 glow-border relative group">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div class="w-full overflow-x-auto text-center md:text-left">
+                <span id="keyDisplay" class="font-mono text-lg md:text-2xl font-bold tracking-widest text-red-400 select-all glow-text">
+                  SURI-A9F2-K8M3$
+                </span>
+                <div class="flex items-center justify-center md:justify-start gap-3 mt-1.5 text-xs font-mono text-zinc-500">
+                  <span id="keyFormatInfo">Format: SURI-XXXX-XXXX$</span>
+                  <span>•</span>
+                  <span id="keyExpireInfo">Expires in 7 days</span>
+                </div>
+              </div>
+
+              <!-- REQUIREMENT 4: "COPY KEY" BUTTON -->
+              <button type="button" id="btnCopyKey" onclick="copyCurrentKey()" class="w-full md:w-auto px-6 py-3 rounded-lg bg-red-600 hover:bg-red-500 text-white font-mono font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-md shadow-red-900/50 hover:shadow-red-600/50 transition-all duration-200 active:scale-95 shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                <span id="copyBtnText">COPY KEY</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: KEY VALIDATOR & BOT DECODER (5 cols) -->
+      <section class="lg:col-span-5 space-y-6">
+
+        <!-- VALIDATOR CARD -->
+        <div class="bg-zinc-950/90 border border-zinc-800 rounded-2xl p-5 md:p-6">
+          <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3.5 mb-5">
+            <div>
+              <span class="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">INTEGRITY CHECKER</span>
+              <h3 class="text-lg font-bold font-cyber text-white">KEY VALIDATOR & DECODER</h3>
+            </div>
+            <span class="text-xs font-mono text-zinc-500">REAL-TIME</span>
+          </div>
+
+          <p class="text-xs text-zinc-400 mb-3">
+            Paste any license key to verify <strong class="text-white">SURI-</strong> prefix, secret <strong class="text-red-400">$</strong> symbol, cryptographic checksum, and remaining duration:
+          </p>
+
+          <div class="space-y-3">
+            <div class="relative">
+              <input type="text" id="validateInput" placeholder="Paste SURI-XXXX-XXXX$ here..." oninput="handleValidateInput()" class="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-3.5 pr-20 py-3 text-sm font-mono text-white focus:outline-none focus:border-red-500 transition-colors">
+              <button type="button" onclick="pasteToValidator()" class="absolute right-2 top-2 px-2.5 py-1 text-xs font-mono text-zinc-400 hover:text-white bg-zinc-800 rounded">
+                PASTE
+              </button>
+            </div>
+
+            <!-- Validation Result Box -->
+            <div id="validationResultBox" class="p-4 rounded-xl border border-zinc-800 bg-zinc-900/50">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-mono text-zinc-400">STATUS:</span>
+                <span id="validBadge" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">
+                  AWAITING INPUT
+                </span>
+              </div>
+              <div id="validDetails" class="text-xs font-mono text-zinc-400 space-y-1">
+                <div>Prefix Check: <span class="text-zinc-500">Enter key to verify</span></div>
+                <div>Secret '$' Symbol: <span class="text-zinc-500">Required</span></div>
+                <div>Decrypted Duration: <span class="text-zinc-500">-</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUICK BOT CODE SNIPPET -->
+        <div class="bg-zinc-950/90 border border-zinc-800 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono text-red-400 font-semibold uppercase">BOT VERIFICATION LOGIC</span>
+            <span class="text-[10px] font-mono text-zinc-500">PYTHON / JS</span>
+          </div>
+          <pre class="bg-black/90 p-3 rounded-lg text-[11px] font-mono text-zinc-300 overflow-x-auto border border-zinc-900">
+def verify_key(key: str) -&gt; bool:
+    # 1. Enforce prefix & secret $ symbol
+    if not (key.startswith("SURI-") and key.endswith("$")):
+        return False
+    # 2. Verify format SURI-XXXX-XXXX$
+    parts = key[5:-1].split("-")
+    return len(parts) == 2 and len(parts[0]) == 4 and len(parts[1]) == 4
+          </pre>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- LICENSE HISTORY LOG TABLE -->
+    <section class="bg-zinc-950/90 border border-zinc-800 rounded-2xl p-5 md:p-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-zinc-800/80 pb-4 mb-4">
+        <div>
+          <span class="text-[11px] font-mono text-red-400 uppercase font-semibold">DATABASE STORAGE</span>
+          <h3 class="text-lg font-bold font-cyber text-white">GENERATED LICENSES LOG</h3>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="exportLicensesCSV()" class="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs font-mono flex items-center gap-1.5">
+            EXPORT CSV
+          </button>
+          <button type="button" onclick="clearAllLicenses()" class="px-3 py-1.5 rounded-lg bg-red-950/40 hover:bg-red-950 text-red-400 border border-red-900/60 text-xs font-mono">
+            CLEAR ALL
+          </button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs font-mono">
+          <thead class="bg-zinc-900/80 text-zinc-400 uppercase border-b border-zinc-800">
+            <tr>
+              <th class="py-2.5 px-3">LICENSE KEY</th>
+              <th class="py-2.5 px-3">DURATION / TIER</th>
+              <th class="py-2.5 px-3">CLIENT</th>
+              <th class="py-2.5 px-3">CREATED</th>
+              <th class="py-2.5 px-3">EXPIRES</th>
+              <th class="py-2.5 px-3">STATUS</th>
+              <th class="py-2.5 px-3 text-right">ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="licensesTableBody" class="divide-y divide-zinc-900 text-zinc-300">
+            <!-- Dynamic rows inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-red-600 text-white px-5 py-3 rounded-xl shadow-2xl font-mono text-xs font-bold tracking-wide flex items-center gap-2 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
+    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <span id="toastMsg">KEY COPIED TO CLIPBOARD!</span>
+  </div>
+
+  <!-- STANDALONE JS CORE ENGINE -->
+  <script>
+    const CHARSET = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+    const SECRET_SEED = 0x8f;
+    const CIPHER_MASK = [0x5a, 0xa5, 0x3c, 0xc3, 0x96];
+
+    let currentDuration = 7;
+    let currentFormat = 'compact';
+    let currentKey = '';
+    let licenseRecords = [];
+
+    // Base32 5-byte encoder
+    function encodeBase32_5bytes(bytes) {
+      let val = 0n;
+      for (let i = 0; i < 5; i++) {
+        val = (val << 8n) | BigInt(bytes[i] & 0xff);
+      }
+      let str = '';
+      for (let i = 7; i >= 0; i--) {
+        const shift = BigInt(i * 5);
+        const index = Number((val >> shift) & 0x1fn);
+        str += CHARSET[index];
+      }
+      return str;
+    }
+
+    // Base32 8-char decoder
+    function decodeBase32_8chars(str) {
+      if (str.length !== 8) return null;
+      let val = 0n;
+      for (let i = 0; i < 8; i++) {
+        const char = str[i].toUpperCase();
+        const idx = CHARSET.indexOf(char);
+        if (idx === -1) return null;
+        val = (val << 5n) | BigInt(idx);
+      }
+      const bytes = [];
+      for (let i = 4; i >= 0; i--) {
+        const shift = BigInt(i * 8);
+        bytes.push(Number((val >> shift) & 0xffn));
+      }
+      return bytes;
+    }
+
+    function computeChecksum(b0, b1, b2, b3) {
+      return (b0 * 31 + b1 * 17 + b2 * 13 + b3 * 7 + SECRET_SEED) & 0xff;
+    }
+
+    function encryptBytes(bytes) {
+      const out = [...bytes];
+      for (let i = 0; i < 5; i++) {
+        out[i] = (out[i] ^ CIPHER_MASK[i]) & 0xff;
+      }
+      out[1] = (out[1] ^ out[0]) & 0xff;
+      out[2] = (out[2] ^ out[1]) & 0xff;
+      out[3] = (out[3] ^ out[2]) & 0xff;
+      out[4] = (out[4] ^ out[3]) & 0xff;
+      return out;
+    }
+
+    function decryptBytes(bytes) {
+      const out = [...bytes];
+      out[4] = (out[4] ^ out[3]) & 0xff;
+      out[3] = (out[3] ^ out[2]) & 0xff;
+      out[2] = (out[2] ^ out[1]) & 0xff;
+      out[1] = (out[1] ^ out[0]) & 0xff;
+      for (let i = 0; i < 5; i++) {
+        out[i] = (out[i] ^ CIPHER_MASK[i]) & 0xff;
+      }
+      return out;
+    }
+
+    // Core generator function
+    function generateSingleKey(durationDays, format) {
+      const EPOCH_BASE = 20089;
+      const todayDays = Math.max(0, Math.floor(Date.now() / 86400000) - EPOCH_BASE);
+      const b0 = Math.min(255, Math.max(1, durationDays));
+      const b1 = (todayDays >> 8) & 0xff;
+      const b2 = todayDays & 0xff;
+      const b3 = Math.floor(Math.random() * 256);
+      const b4 = computeChecksum(b0, b1, b2, b3);
+
+      const encrypted = encryptBytes([b0, b1, b2, b3, b4]);
+      const encoded = encodeBase32_5bytes(encrypted);
+
+      if (format === 'compact') {
+        return 'SURI-' + encoded.slice(0, 4) + '-' + encoded.slice(4, 8) + '$';
+      } else {
+        const extraSalt = Math.floor(Math.random() * 256);
+        const extraCheck = computeChecksum(b4, extraSalt, b0, 0x42);
+        const extraBytes = encryptBytes([extraSalt, extraCheck, b3, b0, 0x11]);
+        const extraEncoded = encodeBase32_5bytes(extraBytes).slice(0, 4);
+        return 'SURI-' + encoded.slice(0, 4) + '-' + encoded.slice(4, 8) + '-' + extraEncoded + '$';
+      }
+    }
+
+    // Core validator function
+    function validateKey(key) {
+      key = (key || '').trim();
+      if (!key.startsWith('SURI-')) {
+        return { isValid: false, reason: 'Must start with "SURI-" prefix' };
+      }
+      if (!key.endsWith('$')) {
+        return { isValid: false, reason: 'Must end with secret "$" symbol' };
+      }
+
+      const body = key.slice(5, -1);
+      const parts = body.split('-');
+      if (parts.length !== 2 && parts.length !== 3) {
+        return { isValid: false, reason: 'Malformed key format segments' };
+      }
+      if (parts[0].length !== 4 || parts[1].length !== 4) {
+        return { isValid: false, reason: 'Key segments must be 4 characters each' };
+      }
+
+      const encoded8 = parts[0] + parts[1];
+      const encryptedBytes = decodeBase32_8chars(encoded8);
+      if (!encryptedBytes) {
+        return { isValid: false, reason: 'Invalid cyber base32 characters' };
+      }
+
+      const [b0, b1, b2, b3, b4] = decryptBytes(encryptedBytes);
+      const expectedChecksum = computeChecksum(b0, b1, b2, b3);
+      if (b4 !== expectedChecksum) {
+        return { isValid: false, reason: 'Tamper detected / Checksum failure' };
+      }
+
+      const durationDays = b0;
+      const EPOCH_BASE = 20089;
+      const issueDay = (b1 << 8) | b2;
+      const createdMs = (issueDay + EPOCH_BASE) * 86400000;
+      const expiresMs = createdMs + durationDays * 86400000;
+      const now = Date.now();
+      const isExpired = now > expiresMs;
+      const daysRemaining = Math.max(0, Math.ceil((expiresMs - now) / 86400000));
+
+      return {
+        isValid: true,
+        durationDays,
+        tier: durationDays === 7 ? '7 Days (Standard)' : (durationDays === 30 ? '30 Days (Premium)' : durationDays + ' Days'),
+        createdDate: new Date(createdMs).toISOString().split('T')[0],
+        expiresDate: new Date(expiresMs).toISOString().split('T')[0],
+        daysRemaining,
+        isExpired
+      };
+    }
+
+    function setDuration(days) {
+      currentDuration = days;
+      const btn7 = document.getElementById('btn-duration-7');
+      const btn30 = document.getElementById('btn-duration-30');
+
+      if (days === 7) {
+        btn7.className = 'duration-btn relative text-left p-4 rounded-xl border border-red-600 bg-red-950/30 text-white transition-all';
+        btn7.querySelector('.selected-indicator').classList.remove('hidden');
+        btn30.className = 'duration-btn relative text-left p-4 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:border-zinc-700 transition-all';
+        btn30.querySelector('.selected-indicator').classList.add('hidden');
+      } else {
+        btn30.className = 'duration-btn relative text-left p-4 rounded-xl border border-red-600 bg-red-950/30 text-white transition-all';
+        btn30.querySelector('.selected-indicator').classList.remove('hidden');
+        btn7.className = 'duration-btn relative text-left p-4 rounded-xl border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:border-zinc-700 transition-all';
+        btn7.querySelector('.selected-indicator').classList.add('hidden');
+      }
+    }
+
+    function setFormat(fmt) {
+      currentFormat = fmt;
+    }
+
+    function handleGenerate() {
+      const count = parseInt(document.getElementById('batchCount').value, 10) || 1;
+      const clientName = document.getElementById('clientInput').value.trim() || 'Auto Bot Client';
+
+      for (let i = 0; i < count; i++) {
+        const key = generateSingleKey(currentDuration, currentFormat);
+        currentKey = key;
+        const record = {
+          key,
+          duration: currentDuration,
+          tier: currentDuration === 7 ? '7 Days Standard' : '30 Days Premium',
+          client: clientName,
+          created: new Date().toLocaleDateString(),
+          expires: new Date(Date.now() + currentDuration * 86400000).toLocaleDateString()
+        };
+        licenseRecords.unshift(record);
+      }
+
+      // Update UI
+      document.getElementById('keyDisplay').textContent = currentKey;
+      document.getElementById('outputTierBadge').textContent = currentDuration === 7 ? '7 DAYS STANDARD' : '30 DAYS PREMIUM';
+      document.getElementById('outputTierBadge').className = currentDuration === 7 
+        ? 'text-xs font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30'
+        : 'text-xs font-mono px-2 py-0.5 rounded bg-red-500/20 text-red-300 border border-red-500/30';
+      document.getElementById('keyFormatInfo').textContent = 'Format: ' + (currentFormat === 'compact' ? 'SURI-XXXX-XXXX$' : 'SURI-XXXX-XXXX-XXXX$');
+      document.getElementById('keyExpireInfo').textContent = 'Valid for ' + currentDuration + ' days';
+
+      saveAndRenderTable();
+      showToast('GENERATED ' + count + ' KEY(S) SUCCESSFULLY');
+    }
+
+    function copyTextDirectly(text, onDone) {
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          if (onDone) onDone();
+        }).catch(() => {
+          fallbackCopyText(text, onDone);
+        });
+      } else {
+        fallbackCopyText(text, onDone);
+      }
+    }
+
+    function fallbackCopyText(text, onDone) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy');
+        if (onDone) onDone();
+      } catch (err) {}
+      document.body.removeChild(ta);
+    }
+
+    function copyCurrentKey() {
+      if (!currentKey) return;
+      copyTextDirectly(currentKey, () => {
+        const btnText = document.getElementById('copyBtnText');
+        btnText.textContent = 'COPIED!';
+        showToast('COPIED TO CLIPBOARD: ' + currentKey);
+        setTimeout(() => {
+          btnText.textContent = 'COPY KEY';
+        }, 2000);
+      });
+    }
+
+    function copyKeyText(key) {
+      copyTextDirectly(key, () => {
+        showToast('COPIED: ' + key);
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2500);
+    }
+
+    function handleValidateInput() {
+      const input = document.getElementById('validateInput').value.trim();
+      const badge = document.getElementById('validBadge');
+      const details = document.getElementById('validDetails');
+
+      if (!input) {
+        badge.className = 'text-xs font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-400';
+        badge.textContent = 'AWAITING INPUT';
+        details.innerHTML = '<div>Prefix Check: <span class="text-zinc-500">Enter key to verify</span></div><div>Secret "$" Symbol: <span class="text-zinc-500">Required</span></div>';
+        return;
+      }
+
+      const res = validateKey(input);
+      if (res.isValid) {
+        badge.className = 'text-xs font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+        badge.textContent = 'AUTHENTIC & VALID';
+        details.innerHTML = '<div>Prefix SURI- & Secret "$" Verified</div>' +
+          '<div>Tier: <span class="text-white font-bold">' + res.tier + '</span></div>' +
+          '<div>Issued: <span class="text-zinc-300">' + res.createdDate + '</span> | Expires: <span class="text-zinc-300">' + res.expiresDate + '</span></div>' +
+          '<div>Status: <span class="' + (res.isExpired ? 'text-red-400' : 'text-emerald-400') + ' font-bold">' + (res.isExpired ? 'EXPIRED' : 'ACTIVE (' + res.daysRemaining + ' days remaining)') + '</span></div>';
+      } else {
+        badge.className = 'text-xs font-mono font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30';
+        badge.textContent = 'INVALID KEY';
+        details.innerHTML = '<div class="text-red-400 font-semibold">✗ Validation Error: ' + res.reason + '</div>' +
+          '<div class="text-zinc-500">Ensure format starts with "SURI-" and ends with "$"</div>';
+      }
+    }
+
+    function pasteToValidator() {
+      navigator.clipboard.readText().then(text => {
+        document.getElementById('validateInput').value = text;
+        handleValidateInput();
+      }).catch(() => {
+        if (currentKey) {
+          document.getElementById('validateInput').value = currentKey;
+          handleValidateInput();
+        }
+      });
+    }
+
+    function saveAndRenderTable() {
+      localStorage.setItem('suri_bot_licenses', JSON.stringify(licenseRecords.slice(0, 100)));
+      const tbody = document.getElementById('licensesTableBody');
+      if (licenseRecords.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="py-6 text-center text-zinc-500">No licenses generated yet. Click "GENERATE ENCRYPTED KEY" above.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = licenseRecords.map((r, i) => \`
+        <tr class="hover:bg-zinc-900/50 transition-colors">
+          <td class="py-2.5 px-3 font-mono font-bold text-red-400">\${r.key}</td>
+          <td class="py-2.5 px-3">
+            <span class="\${r.duration === 7 ? 'text-amber-400 bg-amber-500/10 border-amber-500/20' : 'text-red-400 bg-red-500/10 border-red-500/20'} px-2 py-0.5 rounded border text-[11px]">
+              \${r.tier}
+            </span>
+          </td>
+          <td class="py-2.5 px-3 text-zinc-300">\${r.client}</td>
+          <td class="py-2.5 px-3 text-zinc-500">\${r.created}</td>
+          <td class="py-2.5 px-3 text-zinc-500">\${r.expires}</td>
+          <td class="py-2.5 px-3">
+            <span class="text-emerald-400 font-semibold">● ACTIVE</span>
+          </td>
+          <td class="py-2.5 px-3 text-right">
+            <button onclick="copyKeyText('\${r.key}')" class="px-2.5 py-1 rounded bg-zinc-800 hover:bg-red-600 text-white text-[11px] transition-colors">
+              COPY
+            </button>
+          </td>
+        </tr>
+      \`).join('');
+    }
+
+    function clearAllLicenses() {
+      if (confirm('Clear all generated license history?')) {
+        licenseRecords = [];
+        saveAndRenderTable();
+      }
+    }
+
+    function exportLicensesCSV() {
+      if (licenseRecords.length === 0) {
+        showToast('NO LICENSES TO EXPORT');
+        return;
+      }
+      let csv = 'Key,Duration,Tier,Client,Created,Expires\\n';
+      licenseRecords.forEach(r => {
+        csv += \`"\${r.key}","\${r.duration}","\${r.tier}","\${r.client}","\${r.created}","\${r.expires}"\\n\`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'suri_bot_licenses_' + Date.now() + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Initialize with first key
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const stored = localStorage.getItem('suri_bot_licenses');
+        if (stored) licenseRecords = JSON.parse(stored);
+      } catch (e) {}
+
+      // Generate initial key
+      handleGenerate();
+    });
+  </script>
+</body>
+</html>`;
+}

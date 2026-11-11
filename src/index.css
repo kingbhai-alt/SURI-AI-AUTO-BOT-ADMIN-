@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #07070a;
+    color: #f1f5f9;
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-cyber {
+  font-family: 'Chakra Petch', 'Rajdhani', sans-serif;
+}
+
+/* Cyber dark background pattern */
+.cyber-grid-bg {
+  background-color: #08080c;
+  background-image: 
+    linear-gradient(to right, rgba(239, 68, 68, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 68, 68, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Red cyber glow effects */
+.cyber-glow-red {
+  box-shadow: 0 0 25px -5px rgba(239, 68, 68, 0.35), 0 0 10px -2px rgba(220, 38, 38, 0.25);
+}
+
+.cyber-glow-red-lg {
+  box-shadow: 0 0 40px -5px rgba(239, 68, 68, 0.45), 0 0 20px -2px rgba(220, 38, 38, 0.35);
+}
+
+.cyber-glow-text {
+  text-shadow: 0 0 12px rgba(239, 68, 68, 0.6), 0 0 24px rgba(220, 38, 38, 0.3);
+}
+
+.cyber-border-gradient {
+  border-image: linear-gradient(135deg, rgba(239, 68, 68, 0.8), rgba(153, 27, 27, 0.2)) 1;
+}
+
+/* Custom cyber scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ef4444;
+}
+
+/* Subtle scanline overlay (optional toggle) */
+.scanlines {
+  position: relative;
+}
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.3;
+}

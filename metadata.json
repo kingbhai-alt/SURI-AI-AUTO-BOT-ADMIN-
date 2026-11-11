@@ -1,0 +1,6 @@
+{
+  "name": "SURI AI AUTO BOT - Admin Panel",
+  "description": "Cyber Dark/Red Admin Dashboard and encrypted license key generator for SURI AI AUTO BOT with 7-day and 30-day key support, SURI-XXXX-XXXX$ formatting, validation, and standalone HTML export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
